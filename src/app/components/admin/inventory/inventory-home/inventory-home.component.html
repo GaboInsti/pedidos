@@ -1,0 +1,65 @@
+<div *ngIf="mobiliarios" class="container inventario-container py-2">
+  <!-- Inventario mobiliario header -->
+  <div class="row">
+    <div
+      class="col-12 col-md-5 d-flex align-items-center justify-content-center justify-content-md-start"
+    >
+      <span>Inventario Mobiliario</span>
+    </div>
+    <div class="col-12 col-md-7">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Buscar inventario por nombre"
+          aria-label="Buscar inventario por nombre"
+          aria-describedby="buscar-inventario-nombre"
+          name="filter"
+          [(ngModel)]="filter"
+        />
+        <button
+          class="btn btn-outline-secondary d-flex"
+          type="button"
+          id="buscar-inventario"
+        >
+          <span class="material-symbols-outlined"> search </span>
+        </button>
+        <!-- <button
+          class="btn btn-outline-secondary d-flex"
+          type="button"
+          id="buscar-inventario2"
+        >
+          <span class="material-symbols-outlined"> filter_alt </span>
+        </button> -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Inventario mobiliario content -->
+  <div class="row table-container my-3 px-4">
+    <table class="table" aria-labelledby="inventory">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Existencia</th>
+          <th scope="col">Precio unitario</th>
+          <th scope="col">Categoría</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let mobiliario of (mobiliarios | filterMobiliario: filter)"
+          class="pointer"
+          (click)="onCheckDetails(mobiliario.id)"
+        >
+          <td>{{ mobiliario.id }}</td>
+          <td>{{ mobiliario.name }}</td>
+          <td>{{ mobiliario.stock }}</td>
+          <td>${{ mobiliario.price }}</td>
+          <td>{{ mobiliario.category }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

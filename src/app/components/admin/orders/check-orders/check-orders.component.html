@@ -1,0 +1,61 @@
+<div *ngIf="orders" class="container pedidos-container py-2">
+  <!-- Consultar pedidos header -->
+  <div class="row">
+    <div class="col-12 col-md-6 d-flex align-items-center justify-content-center justify-content-md-start">
+      <span>Consultar Pedidos</span>
+    </div>
+    <div class="col-12 col-md">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Buscar pedido"
+          aria-label="Buscar pedido"
+          aria-describedby="buscar-pedido"
+        />
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          id="buscar-pedido"
+        >
+          Search
+        </button>
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          id="buscar-pedido2"
+        >
+          Filter
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Consultar pedidos table container -->
+  <div class="row table-container my-3 px-4">
+    <table class="table" aria-labelledby="details">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Fecha de entrega</th>
+          <th scope="col">Fecha de recolección</th>
+          <th scope="col">Consumidor</th>
+          <th scope="col">Dirección</th>
+          <th scope="col">Transportista</th>
+          <th scope="col">Estatus</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders; let i = index" class="pointer" (click)="onCheckOrderDetails(i)">
+          <td class="text-overflow">{{ order.id }}</td>
+          <td class="text-overflow">{{ order.date.startDate }}</td>
+          <td class="text-overflow">{{ order.date.endDate }}</td>
+          <td class="text-overflow">{{ order.customer.customerName }}</td>
+          <td class="text-overflow">{{ order.address.colonia }}, {{ order.address.street1 }}, {{ order.address.street2 }}</td>
+          <td class="text-overflow">{{ order.transportista.name === '' ? 'Sin asignar' : order.transportista.name }}</td>
+          <td class="text-overflow">{{ order.date.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

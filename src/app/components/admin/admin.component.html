@@ -1,0 +1,13 @@
+<div class="admin-container d-flex flex-column flex-md-row">
+  <!-- Sidebar -->
+  <div class="sidebar d-flex flex-md-column justify-content-around">
+    <button class="btn btn-primary" routerLink="/pedidos">Gestionar Pedidos</button>
+    <button class="btn btn-primary" routerLink="/empleados">Gestionar Empleados</button>
+    <button class="btn btn-primary" routerLink="/inventario">Gestionar Inventario</button>
+  </div>
+
+  <!-- Admin Content -->
+  <div class="content-container">
+    <router-outlet></router-outlet>
+  </div>
+</div>

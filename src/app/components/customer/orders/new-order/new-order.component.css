@@ -1,0 +1,16 @@
+.order-container {
+    height: calc(100% - 66px);
+    overflow: auto;
+}
+
+.table-container {
+    overflow: auto;
+}
+
+textarea {
+    resize: none;
+}
+
+.no-click {
+    pointer-events: none;
+}

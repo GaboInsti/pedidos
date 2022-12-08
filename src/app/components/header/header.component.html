@@ -1,0 +1,23 @@
+<div class="">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark px-2">
+      <!-- LOGO -->
+      <a class="navbar-brand mx-2" href="#">
+        <img src="./assets/img/D-Fantasy-logo.png"  height="40" alt="logo">
+      </a>
+      <!--  -->
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="navbar-collapse collapse " id="navbar">
+      <ul class="navbar-nav mx-2 d-flex">
+          <li class="nav-item"><a class="nav-link" [routerLink]="homeRoute">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" [routerLink]="catalogRoute">Catálogo</a></li>
+          <li *ngIf="!logged" class="nav-item"><a class="nav-link" [routerLink]="newCustomerOrder">Realizar Renta</a></li>
+          <li *ngIf="!logged" class="nav-item"><a class="nav-link" [routerLink]="searchCustomerOrderDetails">Consultar pedido</a></li>
+          <li *ngIf="logged" class="nav-item"><a class="nav-link" [routerLink]="adminRoute">Admin</a></li>
+          <li class="nav-item"><button type="button" class="btn text-light" (click)="onLoginLogout()">{{ logged ? 'Logout' : 'Login' }}</button></li>
+      </ul>
+  </div>
+    </nav>
+  </div>

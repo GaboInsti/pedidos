@@ -1,0 +1,138 @@
+<div *ngIf="mobiliario" class="container py-2">
+  <form [formGroup]="mobiliarioForm" (ngSubmit)="onSaveMobiliario()">
+    <!-- Inventario detalles header -->
+    <div class="row">
+      <div class="col d-flex justify-content-center align-items-center">
+        <span>Inventario - Detalle Mobiliario</span>
+      </div>
+    </div>
+  
+    <!-- Inventario detalles content -->
+    <div class="row my-5 justify-content-center align-items-center">
+      <div class="col-auto mb-3 mb-md-0">
+        <div class="img-container">
+          <img
+            class="img-fluid"
+            [src]="mobiliario.src"
+            alt="mobiliario-example"
+          />
+        </div>
+      </div>
+      <div class="col-auto">
+        <div class="id-container row">
+          <div class="col-5 d-flex align-items-center">
+            <label>ID:</label>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="ID"
+                aria-label="ID"
+                aria-describedby="id"
+                formControlName="id"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="nombre-container row">
+          <div class="col-5 d-flex align-items-center">
+            <label>Nombre:</label>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Nombre"
+                aria-label="Nombre"
+                aria-describedby="nombre"
+                formControlName="name"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="existencia-container row">
+          <div class="col-5 d-flex align-items-center">
+            <label>Existencia:</label>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Existencia"
+                aria-label="Existencia"
+                aria-describedby="existencia"
+                formControlName="stock"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="precio-container row">
+          <div class="col-5 d-flex align-items-center">
+            <label>Precio unitario:</label>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Precio unitario"
+                aria-label="Precio unitario"
+                aria-describedby="precio-unitario"
+                formControlName="price"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="categoria-container row">
+          <div class="col-5 d-flex align-items-center">
+            <label>Categoría:</label>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <input type="text" class="form-control" aria-label="Categoria" formControlName=category/>
+              <button
+                type="button"
+                class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="visually-hidden">Categoria</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li *ngFor="let category of categories">
+                  <a class="dropdown-item" (click)="onChangeCategory(category)">
+                    {{ category.name }}
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="descripcion-container row">
+          <div class="col">
+            <label>Descripción:</label>
+            <textarea
+              class="form-control"
+              placeholder="Descripción del mobiliario"
+              formControlName="description"
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Buttons -->
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <button class="btn btn-success" type="submit">Guardar</button>
+      </div>
+      <div class="col-auto">
+        <button class="btn btn-danger" type="button" (click)="onDeleteMobiliario()">Eliminar</button>
+      </div>
+    </div>
+  </form>
+</div>

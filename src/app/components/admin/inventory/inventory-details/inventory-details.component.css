@@ -1,0 +1,8 @@
+.img-container {
+    width: 200px;
+}
+
+textarea {
+    min-height: 62px;
+    max-height: 120px;
+}

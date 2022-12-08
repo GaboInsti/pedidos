@@ -1,0 +1,11 @@
+.table-container {
+    overflow: auto;
+}
+
+textarea {
+    resize: none;
+}
+
+.no-click {
+    pointer-events: none;
+}
